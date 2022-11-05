@@ -2,6 +2,10 @@
 
 This is a simple quiz application built using React, TailwindCSS and typescript. It uses custom data
 
+## Notice
+
+The project was developed to work with multiple quiz from 'src/api/data.json', you can edit the file to test
+
 ## Available Scripts
 
 In the project directory, you can run:

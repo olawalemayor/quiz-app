@@ -16,13 +16,17 @@ export default function Quiz() {
     setActiveQuestion,
   } = useContext(quizContext);
 
+  // Time for each quiz
+  const timeForQuiz = 60;
+
   const [selectedOption, setSelectedOption] = useState<AnswerOption>();
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(timeForQuiz);
 
   const navigate = useNavigate();
 
   const updateScore = () => {
     // has no effect if no option is selected
+    // updates score based on current selection
 
     if (!selectedOption) return;
 
@@ -46,9 +50,11 @@ export default function Quiz() {
   };
 
   const handleTimerEnd = () => {
+    // Submits and moves to next question
+    // If last question, ends the quiz
     if (activeQuestion < quizzes.length - 1) {
       handleSubmit();
-      setTime(60);
+      setTime(timeForQuiz);
     } else endQuiz();
   };
 
@@ -58,6 +64,7 @@ export default function Quiz() {
 
     updateScore();
 
+    // Disable navigation back once test is completed
     navigate("done", { replace: true });
   };
 
@@ -113,7 +120,7 @@ export default function Quiz() {
               )
             )}
 
-          {/* Next question or end quiz */}
+          {/* Got to Next question if there is a next question */}
           {activeQuestion < quizzes.length - 1 && (
             <button
               className="px-5 py-2 rounded-lg border-2 border-black hover:bg-black hover:text-white"
@@ -123,6 +130,7 @@ export default function Quiz() {
             </button>
           )}
 
+          {/* If last question */}
           {activeQuestion >= quizzes.length - 1 && (
             <button
               className="px-5 py-2 rounded-lg border-2 border-black hover:bg-black hover:text-white"

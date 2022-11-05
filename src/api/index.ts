@@ -1,3 +1,5 @@
+import quizData from "./data.json";
+
 export interface AnswerOption {
   answerText: string;
   isCorrect: string;
@@ -15,36 +17,8 @@ export interface IQuiz {
   };
 }
 
-const quizzes: IQuiz[] = [
-  {
-    data: {
-      getStep: {
-        id: "0007-02-05",
-        stepQuiz: {
-          answerOptions: [
-            {
-              answerText: "Animate him",
-              isCorrect: "true",
-            },
-            {
-              answerText: "Manufacture him",
-              isCorrect: "true",
-            },
-            {
-              answerText: "Modify him",
-              isCorrect: "true",
-            },
-            {
-              answerText: "Do nothing with him",
-              isCorrect: "false",
-            },
-          ],
-          questionText: "What can you do with Roland after modelling him?",
-        },
-      },
-    },
-  },
-];
+// custom quiz data
+const quizzes: IQuiz[] = quizData;
 
 export const getQuiz = () => {
   // returns array of quiz as a promise

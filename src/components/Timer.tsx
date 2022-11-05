@@ -8,11 +8,14 @@ interface TimerProps {
 
 export default function Timer({ onEnd, time, setTime }: TimerProps) {
   useEffect(() => {
-    if (time > 0)
-      setInterval(() => {
+    // reduces time by 1 every second and triggers an action when time is 0
+    if (time > 0) {
+      const interval = setInterval(() => {
         setTime(time - 1);
       }, 1000);
-    else onEnd();
+
+      return () => clearInterval(interval);
+    } else onEnd();
   }, [time, setTime, onEnd]);
 
   return (
