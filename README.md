@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Quiz Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple quiz application built using React, TailwindCSS and typescript. It uses custom data
 
 ## Available Scripts
 
